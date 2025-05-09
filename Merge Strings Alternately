@@ -1,0 +1,19 @@
+var mergeAlternately = function(word1, word2) {
+    let a =  word1.split("")
+    let b =  word2.split("")
+    const totalLength = Math.max(a.length,b.length)
+    console.log(totalLength)
+    let arr=[]
+    for(let i=0;i<=totalLength;i++){
+        if(i<a.length){
+            arr.push(a[i])
+        }
+        if(i<b.length){
+            arr.push(b[i])
+        }
+    }
+    return arr.join('')   
+};
+const word1="dea"
+const word2="epk"
+mergeAlternately(word1,word2)
