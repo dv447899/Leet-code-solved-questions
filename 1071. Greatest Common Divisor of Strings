@@ -1,0 +1,21 @@
+/**
+ * @param {string} str1
+ * @param {string} str2
+ * @return {string}
+ */
+var gcdOfStrings = function(str1, str2) {
+    // If concatenating in both orders gives different result, there's no common divisor
+    if (str1 + str2 !== str2 + str1) {
+        return "";
+    }
+
+    // Helper function to compute GCD of two numbers
+    const gcd = (a, b) => b === 0 ? a : gcd(b, a % b);
+
+    const lengthGCD = gcd(str1.length, str2.length);
+    return str1.substring(0, lengthGCD);
+};
+
+console.log(gcdOfStrings("ABCABC", "ABC")); // Output: "ABC"
+console.log(gcdOfStrings("ABABAB", "ABAB")); // Output: "AB"
+console.log(gcdOfStrings("LEET", "CODE"));   // Output: ""
