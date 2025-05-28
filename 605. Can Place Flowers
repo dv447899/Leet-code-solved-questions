@@ -1,0 +1,26 @@
+/**
+ * @param {number[]} flowerbed
+ * @param {number} n
+ * @return {boolean}
+ */
+var canPlaceFlowers = function(flowerbed, n) {
+    let count = 0;
+    
+    for (let i = 0; i < flowerbed.length; i++) {
+        // Check if current is 0 and both neighbors are 0 or undefined (edge cases)
+        if (
+            flowerbed[i] === 0 &&
+            (i === 0 || flowerbed[i - 1] === 0) &&
+            (i === flowerbed.length - 1 || flowerbed[i + 1] === 0)
+        ) {
+            flowerbed[i] = 1; // Place a flower
+            count++; // Increment the count
+
+            if (count >= n) return true; // Early exit if we reach required flowers
+        }
+    }
+
+    return count >= n;
+};
+
+console.log([1,0,0,0,1],1)
