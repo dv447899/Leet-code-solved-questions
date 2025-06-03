@@ -1,0 +1,21 @@
+function reverseVowels(s) {
+    const vowels = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
+    const chars = s.split('');
+    const stack = [];
+
+    // Collect all vowels
+    for (let ch of chars) {
+        if (vowels.has(ch)) {
+            stack.push(ch);
+        }
+    }
+
+    // Replace vowels in reverse order
+    for (let i = 0; i < chars.length; i++) {
+        if (vowels.has(chars[i])) {
+            chars[i] = stack.pop();
+        }
+    }
+
+    return chars.join('');
+}
